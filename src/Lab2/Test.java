@@ -1,6 +1,6 @@
 package Lab2;
 
-import java.util.ArrayList;
+
 import java.util.LinkedList;
 import java.util.ListIterator;
 import java.util.Scanner;
@@ -27,7 +27,7 @@ public class Test {
                                 tab[licznik] = userPoint.nextDouble();
                                 licznik++;
                             } else {
-                                System.out.println("Error");
+                                System.out.println("Źle wprowdzono dane !");
                                 break;
                             }
                         }

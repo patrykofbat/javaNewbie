@@ -22,6 +22,6 @@ public class Punkt3D extends Punkt2D {
 
     @Override
     public String toString() {
-        return "x: " + getX() + " y: " + getY() + " z: " + getZ();
+        return "x: " + getX() + " y: " + getY() + " z: " + getZ() + "\n";
     }
 }
