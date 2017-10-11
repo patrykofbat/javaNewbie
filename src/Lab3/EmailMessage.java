@@ -16,15 +16,15 @@ public class EmailMessage {
     private String mimeType;
     private LinkedList<String> cc;
     private LinkedList<String> bcc;
-    private static final String SMTP_AUTH_USER ="patrykofbat@gmail.com";
-    private static final String SMTP_AUTH_PWD ="patryk123";
+    private static final String SMTP_AUTH_USER = "patrykofbat@gmail.com";
+    private static final String SMTP_AUTH_PWD = "patryk123";
 
     public String getFrom() {
         return from;
     }
 
-    public void getTo () {
-        for(String to : this.to)
+    public void getTo() {
+        for (String to : this.to)
             System.out.println(to);
     }
 
@@ -44,7 +44,7 @@ public class EmailMessage {
         return new EmailMessage.Builder();
     }
 
-    public void send()throws MessagingException {
+    public void send() throws MessagingException {
         Properties props = System.getProperties();
         props.setProperty("mail.smtp.host", "smtp.gmail.com");
         props.setProperty("mail.smtp.user", SMTP_AUTH_USER);
@@ -55,31 +55,24 @@ public class EmailMessage {
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.ssl.trust", "smtp.gmail.com");
         Session session = Session.getInstance(props, new javax.mail.Authenticator() {
-
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(SMTP_AUTH_USER, SMTP_AUTH_PWD);
             }
         });
-        try{
-            MimeMessage message = new MimeMessage(session);
+        MimeMessage message = new MimeMessage(session);
 
 
-            message.setFrom(new InternetAddress(this.from));
+        message.setFrom(new InternetAddress(this.from));
 
-            message.addRecipient(Message.RecipientType.TO, new InternetAddress(this.to.get(0)));
+        message.addRecipient(Message.RecipientType.TO, new InternetAddress(this.to.get(0)));
 
-            message.setSubject(this.subject);
+        message.setSubject(this.subject);
 
-            message.setText(this.content);
+        message.setText(this.content);
 
-            Transport.send(message);
+        Transport.send(message);
 
-            System.out.println("Message sent successfully");
-        }catch(MessagingException mex){
-            mex.printStackTrace();
-        }
-
-
+        System.out.println("Message sent successfully");
 
 
     }
@@ -105,37 +98,21 @@ public class EmailMessage {
         }
 
         public Builder addFrom(String from) throws InvalidEmailFormatException {
-            try {
-                if (Validation.validate(EMAILPATTERN, from)) {
-                    this.fromTmp = from;
-                    return this;
-                }
-                else
-                    throw new InvalidEmailFormatException();
-
-
-            } catch (InvalidEmailFormatException e) {
-                System.out.println("Invalid email format");
+            if (Validation.validate(EMAILPATTERN, from)) {
+                this.fromTmp = from;
                 return this;
-
-            }
-
-
+            } else
+                throw new InvalidEmailFormatException();
         }
 
         public Builder addTo(String... to) throws InvalidEmailFormatException {
-            if(this.toTmp == null)
+            if (this.toTmp == null)
                 this.toTmp = new LinkedList<String>();
             for (String tmp : to) {
-                try {
-                    if (Validation.validate(EMAILPATTERN, tmp)) {
-                        toTmp.add(tmp);
-                    } else
-                        throw new InvalidEmailFormatException();
-                } catch (InvalidEmailFormatException e) {
-                    System.out.println("Invalid email format");
-                    return this;
-                }
+                if (Validation.validate(EMAILPATTERN, tmp)) {
+                    toTmp.add(tmp);
+                } else
+                    throw new InvalidEmailFormatException();
             }
             return this;
         }
@@ -153,15 +130,10 @@ public class EmailMessage {
         }
 
         public EmailMessage build() throws RequriedArgumentsException {
-            try {
-                if (this.fromTmp == null || this.toTmp == null)
-                    throw new RequriedArgumentsException();
-                else
-                    return new EmailMessage(this.fromTmp, this.toTmp, this.subjectTmp, this.contentTmp, this.mimeTypeTmp, this.ccTmp, this.bccTmp);
-            } catch (RequriedArgumentsException e) {
-                System.out.println("Missing requried arguments");
-                return null;
-            }
+            if (this.fromTmp == null || this.toTmp == null)
+                throw new RequriedArgumentsException();
+            else
+                return new EmailMessage(this.fromTmp, this.toTmp, this.subjectTmp, this.contentTmp, this.mimeTypeTmp, this.ccTmp, this.bccTmp);
 
         }
     }
