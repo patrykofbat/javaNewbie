@@ -9,11 +9,14 @@ public class Test {
     public static void main(String[] args) {
         LinkedList<Punkt3D> lista = new LinkedList<Punkt3D>();
         while (true) {
+            System.out.println("==================================================");
             System.out.println("1. Wczytaj punkt 3D");
             System.out.println("2. Wyswietl wszystkie punkty");
             System.out.println("3. Oblicz odległość");
             System.out.println("4. Zakończ");
-            System.out.print("Wybierz : ");
+            System.out.println("Wybierz : ");
+
+            System.out.println("==================================================");
             Scanner userInput = new Scanner(System.in);
             if (userInput.hasNextInt()) {
                 switch (userInput.nextInt()) {
