@@ -6,11 +6,9 @@ import javax.mail.MessagingException;
 public class Main {
     public static void main(String[] args){
         try {
-            EmailMessage wiadomosc = EmailMessage.builder().addTo("piotr.skalski92@gmail.com").
-                    addSubject("Siemka").addContent("siemka").build();
-            System.out.println(wiadomosc.getFrom());
-            wiadomosc.getTo();
-
+            EmailMessage wiadomosc = EmailMessage.builder().addFrom("patrykofbat@gmail.com").addTo("patrykofbat@gmail.com").
+                    addSubject("Siemka").addContent("eloszka jak tam").build();
+            wiadomosc.send();
 
         }
         catch(InvalidEmailFormatException c) {
@@ -21,6 +19,9 @@ public class Main {
         }
         catch (RequriedArgumentsException e){
             System.out.println("Requried argument missing");
+        }
+        catch (MessagingException f){
+            System.out.println("Messaging Exception");
         }
 
 
