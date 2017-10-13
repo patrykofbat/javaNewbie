@@ -17,7 +17,7 @@ public class EmailMessage {
     private LinkedList<String> cc;
     private LinkedList<String> bcc;
     private String smtpMailPassword;
-    private static final String SMTP_AUTH_PWD = "patryk123";
+
 
     public String getFrom() {
         return from;
