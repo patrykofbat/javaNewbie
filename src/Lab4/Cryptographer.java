@@ -12,11 +12,12 @@ public class Cryptographer {
         try {
             Scanner fileReader = new Scanner(new FileReader(inputFile));
             PrintWriter printWriter = new PrintWriter(outputFile);
-            while (fileReader.hasNext()){
-                printWriter.write(fileReader.next());
-                printWriter.write(" ");
+            while (fileReader.hasNextLine()){
+                printWriter.println(fileReader.nextLine());
+
             }
             printWriter.close();
+            fileReader.close();
 
 
         }
