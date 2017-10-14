@@ -13,7 +13,7 @@ public class Cryptographer {
             Scanner fileReader = new Scanner(new FileReader(inputFile));
             PrintWriter printWriter = new PrintWriter(outputFile);
             while (fileReader.hasNextLine()){
-                printWriter.println(fileReader.nextLine());
+                printWriter.println(methodCrypter.crypt(fileReader.nextLine()));
 
             }
             printWriter.close();
@@ -28,6 +28,21 @@ public class Cryptographer {
 
     }
     public static void deCryptFile(File inputFile, File outputFile, Algorithm methodDeCrypter){
+        try {
+            Scanner fileReader = new Scanner(new FileReader(inputFile));
+            PrintWriter printWriter = new PrintWriter(outputFile);
+            while (fileReader.hasNextLine()){
+                printWriter.println(methodDeCrypter.decrypt(fileReader.nextLine()));
+
+            }
+            printWriter.close();
+            fileReader.close();
+
+
+        }
+        catch (FileNotFoundException e){
+            System.out.println("File not found");
+        }
 
     }
 

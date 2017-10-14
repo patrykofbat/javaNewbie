@@ -6,12 +6,16 @@ public class ROT11 implements Algorithm {
 
     @Override
     public String crypt(String wordToCrypt) {
+        wordToCrypt = wordToCrypt.toLowerCase();
         char[] tmpChar = new char[wordToCrypt.length()];
         for (int i = 0; i < wordToCrypt.length(); i++) {
             int newIndex = alfabeth.indexOf(wordToCrypt.charAt(i)) + rotation;
-            if (newIndex > alfabeth.length())
+            while (newIndex >= alfabeth.length())
                 newIndex -= alfabeth.length();
-            tmpChar[i] = alfabeth.charAt(newIndex);
+            if(!(wordToCrypt.charAt(i) == ' '))
+                tmpChar[i] = alfabeth.charAt(newIndex);
+            else
+                tmpChar[i] = ' ';
         }
         return new String(tmpChar);
 
@@ -23,9 +27,13 @@ public class ROT11 implements Algorithm {
         char[] tmpChar = new char[cryptedWord.length()];
         for (int i = 0; i < cryptedWord.length(); i++) {
             int newIndex = alfabeth.indexOf(cryptedWord.charAt(i)) - rotation;
-            if (newIndex < 0)
+            while (newIndex < 0)
                 newIndex = alfabeth.length() + newIndex;
             tmpChar[i] = alfabeth.charAt(newIndex);
+            if(!(cryptedWord.charAt(i) == ' '))
+                tmpChar[i] = alfabeth.charAt(newIndex);
+            else
+                tmpChar[i] = ' ';
         }
         return new String(tmpChar);
 
