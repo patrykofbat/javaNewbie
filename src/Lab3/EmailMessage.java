@@ -65,7 +65,8 @@ public class EmailMessage {
 
         message.setFrom(new InternetAddress(this.from));
 
-        message.addRecipient(Message.RecipientType.TO, new InternetAddress(this.to.get(0)));
+        for(String x: this.to)
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(x));
 
         message.setSubject(this.subject);
 

@@ -6,8 +6,13 @@ import javax.mail.MessagingException;
 public class Main {
     public static void main(String[] args){
         try {
-            EmailMessage wiadomosc = EmailMessage.builder().addFrom("patrykofbat@gmail.com").addTo("patrykofbat@gmail.com").
-                    addSubject("Siemka").addContent("eloszka jak tam").build();
+            EmailMessage wiadomosc = EmailMessage.builder()
+                    .addFrom("patrykofbat@gmail.com")
+                    .addTo("patrykofbat@gmail.com", "patrykpapior1997@gmail.com").
+                    addSubject("Siemka123")
+                    .addContent("eloszka jak tam12")
+                    .build();
+
             wiadomosc.send();
 
         }
