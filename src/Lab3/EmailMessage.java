@@ -89,7 +89,7 @@ public class EmailMessage {
         private LinkedList<String> ccTmp = null;
         private LinkedList<String> bccTmp = null;
         private String smtpMailPasswordTmp = null;
-        final static String EMAILPATTERN = "[a-zA-Z0-9._!#$%^&*]+@[a-zA-Z0-9.]+";
+        final static String EMAILPATTERN = "[a-zA-Z0-9._!#$%^&*]+@[a-zA-Z0-9]+\\.[a-z]{2,6}";
 
         public String getFromTmp() {
             return fromTmp;

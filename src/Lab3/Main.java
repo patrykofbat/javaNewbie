@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args){
         try {
             EmailMessage wiadomosc = EmailMessage.builder()
-                    .addFrom("patrykofbat@gmail.com")
+                    .addFrom("patrykofbat@gmail.")
                     .addTo("patrykofbat@gmail.com", "patrykpapior1997@gmail.com").
                     addSubject("Siemka123")
                     .addContent("eloszka jak tam12")
