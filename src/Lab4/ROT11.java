@@ -1,7 +1,7 @@
 package Lab4;
 
 public class ROT11 implements Algorithm {
-    private static final String alfabeth = "abcdefghijklmnopqrstvwuxyz";
+    private static final String alfabeth = "abcdefghijklmnopqrstuvwxyz";
     private static final int rotation = 11;
 
     @Override

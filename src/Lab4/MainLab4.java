@@ -7,8 +7,8 @@ import java.util.Scanner;
 
 public class MainLab4 {
     public static void main(String[] args){
-        File in = new File(args[0]);
-        File out = new File(args[1]);
+        File in = new File("C:\\Users\\Patryk\\Desktop\\to.txt");
+        File out = new File("C:\\Users\\Patryk\\Desktop\\decrypted.txt");
         System.out.println("1.szyfruj(ROT11)");
         System.out.println("2.szyfruj(Polibiusz)");
         System.out.println("3.deszyfruj(ROT11)");
