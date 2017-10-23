@@ -19,14 +19,17 @@ public class Polibius implements Algorithm {
                         int tmpInt = (licznik + 1) * 10 + Arrays.binarySearch(POLYBIUSARRAYCODER[licznik], word.charAt(i)) + 1;
                         cryptedMessage = cryptedMessage + Integer.toString(tmpInt);
                         break;
-                    } else if (word.charAt(i) == 'j') {
+                    }
+                    else if (word.charAt(i) == 'j') {
                         cryptedMessage = cryptedMessage + "24";
-                        break;
-                    } else if (word.charAt(i) == ' ') {
-                        cryptedMessage = cryptedMessage + " ";
+                        licznik = 5;
                         break;
                     }
-
+                    else if (word.charAt(i) == ' ') {
+                        cryptedMessage = cryptedMessage + " ";
+                        licznik = 5;
+                        break;
+                    }
 
                 }
                 licznik++;
