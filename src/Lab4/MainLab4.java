@@ -6,13 +6,13 @@ import java.util.Scanner;
 // to set up program args go to Run -> Edit configurations
 
 public class MainLab4 {
-    public static void main(String[] args){
+    public MainLab4(){
         File in = new File("C:\\Users\\Patryk\\Desktop\\to.txt");
         File out = new File("C:\\Users\\Patryk\\Desktop\\decrypted.txt");
         System.out.println("1.szyfruj(ROT11)");
-        System.out.println("2.szyfruj(Polibiusz)");
-        System.out.println("3.deszyfruj(ROT11)");
-        System.out.println("4.deszyfruj(Polibius)");
+        System.out.println("2.szyfruj(Polibiusz)");          //interface with will allows user
+        System.out.println("3.deszyfruj(ROT11)");            // to choose option with using switch-case
+        System.out.println("4.deszyfruj(Polibius)");         // bellow
         System.out.print("Wybor: ");
         Scanner userInput = new Scanner(System.in);
         int i = userInput.nextInt();
@@ -30,12 +30,10 @@ public class MainLab4 {
                 Cryptographer.deCryptFile(in, out, new Polibius());
                 break;
         }
+
     }
-       /* File inputFile = new File("C:\\Users\\Patryk\\Documents\\FileJava\\input.txt");
-        File outputFile = new File("C:\\Users\\Patryk\\Documents\\FileJava\\output.txt");
-        File newFile = new File("C:\\Users\\Patryk\\Documents\\FileJava\\decrypted.txt");
-        Cryptographer.cryptFile(inputFile, outputFile, new Polibius());
-        Cryptographer.deCryptFile(outputFile, newFile, new Polibius());
-        */
+    public static void main(String[] args){
+        new MainLab4();
+    }
 }
 

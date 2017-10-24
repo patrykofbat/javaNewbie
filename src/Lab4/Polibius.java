@@ -16,28 +16,25 @@ public class Polibius implements Algorithm {
             while (licznik < 5) {
                 for (char k : POLYBIUSARRAYCODER[licznik]) {
                     if (k == word.charAt(i)) {
-                        int tmpInt = (licznik + 1) * 10 + Arrays.binarySearch(POLYBIUSARRAYCODER[licznik], word.charAt(i)) + 1;
-                        cryptedMessage = cryptedMessage + Integer.toString(tmpInt);
+                        int tmpInt = (licznik + 1) * 10 + Arrays.binarySearch(POLYBIUSARRAYCODER[licznik],
+                                word.charAt(i)) + 1;
+                        cryptedMessage += Integer.toString(tmpInt);
                         break;
                     }
                     else if (word.charAt(i) == 'j') {
-                        cryptedMessage = cryptedMessage + "24";
+                        cryptedMessage += "24";
                         licznik = 5;
                         break;
                     }
                     else if (word.charAt(i) == ' ') {
-                        cryptedMessage = cryptedMessage + " ";
+                        cryptedMessage += " ";
                         licznik = 5;
                         break;
                     }
-
                 }
                 licznik++;
-
             }
-
         }
-
         return cryptedMessage;
     }
 
@@ -47,13 +44,13 @@ public class Polibius implements Algorithm {
         int i =0;
         while(i<=cryptedWord.length()-1){
             if(cryptedWord.charAt(i) == ' '){
-                decrypted = decrypted + " ";
+                decrypted += " ";
                 i++;
             }
             else {
                 int row = Character.getNumericValue(cryptedWord.charAt(i)) - 1;
                 int col = Character.getNumericValue(cryptedWord.charAt(i + 1)) - 1;
-                decrypted = decrypted + POLYBIUSARRAYCODER[row][col];
+                decrypted += POLYBIUSARRAYCODER[row][col];
                 i+=2;
             }
         }
