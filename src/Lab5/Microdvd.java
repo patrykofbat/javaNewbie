@@ -9,8 +9,6 @@ import java.util.Scanner;
 
 public class Microdvd {
 
-    // code respones we get other messages depends on Interger
-    private static final HashMap<Integer, String>CODERESPONES = new HashMap<Integer, String>();
 
     //############################# delay method ###########################
 
