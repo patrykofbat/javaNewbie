@@ -42,10 +42,17 @@ public class Microdvd {
                     break;
                 // invalid format chars i brackets
                 case 1:
-                    break;
+                    // creating message string
+                    String messageError = "Line: " + Integer.toString(counter)+ " " + line;
+                    // first param - message, second - type of error
+                    throw new FormatException(messageError, "Invalid format");
                 // starting frame is bigger than ending frame
                 case 2:
-                    break;
+                    // creating message string
+                    String messageError_2 = "Line: " + Integer.toString(counter)+ " " + line;
+                    // first param - message, second - type of error
+                    throw new FormatException(messageError_2, "Invalid dimensions of frames");
+
             }
             counter++;
         }

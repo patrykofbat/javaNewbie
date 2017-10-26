@@ -1,7 +1,5 @@
 package Lab5;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class MainLab5 {
     public static void main(String[] args){
@@ -11,12 +9,9 @@ public class MainLab5 {
 
         try{
             microdvd.delay(in, out , 1000, 10);
-
         }
         catch(Exception e){
             e.printStackTrace();
         }
-
-
     }
 }
