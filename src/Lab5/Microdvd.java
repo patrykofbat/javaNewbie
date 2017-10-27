@@ -4,7 +4,6 @@ import java.io.File;
 
 import java.io.FileReader;
 import java.io.PrintWriter;
-import java.util.HashMap;
 import java.util.Scanner;
 
 public class Microdvd {
@@ -32,11 +31,11 @@ public class Microdvd {
             String line = fileReader.nextLine();
 
             // getting code
-            int code = ValidateMicrodvdFormat.validate(line);
+            int code = MicrodvdFormatValidator.validate(line);
             switch (code){
                 // everything is right
                 case 0:
-                    fileWriter.println(ValidateMicrodvdFormat.shuffle(line, msec, fps));
+                    fileWriter.println(MicrodvdFormatValidator.shuffle(line, msec, fps));
                     break;
                 // invalid format chars i brackets
                 case 1:

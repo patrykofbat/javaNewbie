@@ -3,7 +3,7 @@ package Lab5;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ValidateMicrodvdFormat {
+public class MicrodvdFormatValidator {
 
     // pattern sample{123}{123}text
     private static final Pattern PATTERNMICRODVDFORMAT = Pattern.compile("\\{(\\d+)}\\{(\\d+)}([\\w.,?!@#$%^ &*;'\"]+)");
