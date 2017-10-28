@@ -12,8 +12,8 @@ public class MicrodvdFormatValidator {
     static int validate(String line) {
         Matcher matcher = PATTERNMICRODVDFORMAT.matcher(line);
         if (matcher.matches()) {
+
             // if starting frame is bigger than ending frame
-            matcher.matches();
             if (Integer.parseInt(matcher.group(1)) > Integer.parseInt(matcher.group(2)))
                 return 2;
             else
