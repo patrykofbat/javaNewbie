@@ -21,11 +21,12 @@ public class Microdvd {
         Scanner fileReader = new Scanner(new FileReader(in));
         PrintWriter fileWriter = new PrintWriter(out);
 
+        // counter for give detail information if exception occur
+        int counter = 1;
 
         //looping through file line by line
         while(fileReader.hasNextLine()){
-            // counter for give detail information if exception occur
-            int counter = 1;
+
 
             //seperate variable for line
             String line = fileReader.nextLine();
