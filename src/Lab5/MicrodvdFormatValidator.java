@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class MicrodvdFormatValidator {
 
     // pattern sample{123}{123}text
-    private static final Pattern PATTERNMICRODVDFORMAT = Pattern.compile("\\{(\\d+)}\\{(\\d+)}([\\w.,?!@#$%^ &*;'\"]+)");
+    private static final Pattern PATTERNMICRODVDFORMAT = Pattern.compile("\\{(\\d+)}\\{(\\d+)}(.*)");
 
     //###### validate method #######
     static int validate(String line) {
