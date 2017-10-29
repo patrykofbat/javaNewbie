@@ -35,12 +35,14 @@ public class MicrodvdFormatValidator {
         matcher.matches();
 
         int shuffled  = ((msec / 1000) * fps);
-        if(shuffled < 0)
-            throw new NegativeTimeFrameException();
 
         // creating to Frames
         int newStartFrameInt = Integer.parseInt(matcher.group(1)) + shuffled;
         int newEndFrameInt = Integer.parseInt(matcher.group(2)) + shuffled;
+
+        //exception if negative frame
+        if(newStartFrameInt< 0)
+            throw new NegativeTimeFrameException();
 
         // creating new Strings for start and end frame
         String newStartFrameString = Integer.toString(newStartFrameInt);
