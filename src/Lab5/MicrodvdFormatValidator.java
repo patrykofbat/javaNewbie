@@ -26,7 +26,7 @@ public class MicrodvdFormatValidator {
     }
 
     //############ shufle method ########################
-    static String shuffle(String line, int msec, int fps) {
+    static String shuffle(String line, int msec, int fps)throws Exception {
 
         //matcher for line
         Matcher matcher = PATTERNMICRODVDFORMAT.matcher(line);
@@ -34,9 +34,13 @@ public class MicrodvdFormatValidator {
         // u have to invoke this function to get access to function group
         matcher.matches();
 
+        int shuffled  = ((msec / 1000) * fps);
+        if(shuffled < 0)
+            throw new NegativeTimeFrameException();
+
         // creating to Frames
-        int newStartFrameInt = Integer.parseInt(matcher.group(1)) + (int) ((msec / 1000) * fps);
-        int newEndFrameInt = Integer.parseInt(matcher.group(2)) + (int) ((msec / 1000) * fps);
+        int newStartFrameInt = Integer.parseInt(matcher.group(1)) + shuffled;
+        int newEndFrameInt = Integer.parseInt(matcher.group(2)) + shuffled;
 
         // creating new Strings for start and end frame
         String newStartFrameString = Integer.toString(newStartFrameInt);

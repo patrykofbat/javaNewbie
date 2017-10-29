@@ -8,7 +8,7 @@ public class MainLab5 {
         String out = "C:\\Users\\Patryk\\Documents\\FileJava\\output.txt";
 
         try{
-            microdvd.delay(in, out , 1000, 10);
+            microdvd.delay(in, out , -1000, 10);
         }
         catch(Exception e){
             e.printStackTrace();
