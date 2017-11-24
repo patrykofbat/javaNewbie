@@ -11,10 +11,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class IndicoImageRecognition {
+    public HashMap<String, Double> result_2 = new HashMap<String, Double>();
+    public String[] nameFiles;
     public static double getMaxValue(Collection<Double> doubleSet) {
         double max = Double.NEGATIVE_INFINITY;
         for (double i : doubleSet) {
@@ -25,7 +28,7 @@ public class IndicoImageRecognition {
     }
 
 
-     void sorter(String pathToDir) throws IndicoException, WrongPathException, IOException{
+     public void sorter(String pathToDir) throws IndicoException, WrongPathException, IOException{
         //validation if api key does not fit
         Indico indico = new Indico("18cfe2137533995d874996339ba37b53");
 
@@ -35,6 +38,7 @@ public class IndicoImageRecognition {
             throw new WrongPathException("You pass wrong path");
 
         String[] fileNames = dirWithImg.list();
+        this.nameFiles = fileNames;
         String[] arrayWithImg = new String[dirWithImg.listFiles().length];
         //counter for looping through array
         int counterForFiles = 0;
@@ -61,6 +65,7 @@ public class IndicoImageRecognition {
                     category = k;
                 }
             }
+            result_2.put(category, maxValue);
             System.out.println(category + "=" + maxValue);
             //create new dir named as category if exist does not overide
             new File("C:\\Users\\Patryk\\Documents\\Obrazki\\sorted\\" + category).mkdir();
