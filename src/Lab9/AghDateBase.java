@@ -11,7 +11,7 @@ public class AghDateBase {
 
     public void connect() {
         try {
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
+//            Class.forName("com.mysql.jdbc.Driver").newInstance();
             this.conn = DriverManager.getConnection("jdbc:mysql://mysql.agh.edu.pl/papior",
                     "papior", "xmx4Hr3SMo8B924C");
             isConnected = true;
